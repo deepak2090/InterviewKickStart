@@ -1,0 +1,14 @@
+array1 = [5,2,1,8,9,10]
+
+def SelectionSort(array):
+    for i in range(0, len(array)):
+        minvalue = array[i]
+        minindex = i
+        for red in range(i+1, len(array)):
+            if array[red] < minvalue:
+                minvalue = array[red]
+                minindex = red
+        array[i],array[minindex] = array[minindex], array[i]
+    return array
+
+print(SelectionSort(array1))
