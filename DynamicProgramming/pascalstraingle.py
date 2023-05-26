@@ -48,3 +48,39 @@ print(y)
  [1, 5, 11, 15, 16, 16],
  [1, 6, 16, 26, 31, 32]]
  """
+
+
+
+def find_pascal_triangle(n):
+    """
+    Args:
+     n(int32)
+    Returns:
+     list_list_int32
+    """
+    # Write your code here.
+    #define a 2d empty triangle
+    table = []
+    if n == 0:
+        return None
+    elif n ==1:
+        table.append([1])
+        return table
+    else:
+        table.append([1])
+        table.append([1,1])
+        for i in range(2, n):
+            row = [None] * (i+1)
+            #table.append(value)
+            #[0] = 1
+            #table[i][-1] = 1
+            row[0] = 1
+            row[-1] = 1
+            for col in range(1,i):
+                row[col] = table[i-1][col-1] + table[i-1][col]
+            table.append(row)
+    return table
+
+
+x = find_pascal_triangle(9)
+print(x)
