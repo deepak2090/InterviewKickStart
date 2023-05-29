@@ -35,9 +35,11 @@ triangle =  [
 """triangle = [
 [2]]
 """
+"""
 
 x = get_minimum_path_sum(triangle)
 print(x)
 import sys
 
 print(sys.path)
+"""
