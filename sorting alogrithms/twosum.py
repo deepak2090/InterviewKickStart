@@ -27,5 +27,17 @@ def twosumsort(array, target):
             left +=1
     return resultlist
 
-result = twosumsort(array, 6)
-print(result)
+
+
+def twosumhashmap(array, target):
+    dict = {}
+    result = []
+    for i in range(len(array)):
+        if target- array[i] in dict:
+            result.append([array[i], target - array[i]])
+        else:
+            dict[array[i]] = 1
+    return result
+
+res =twosumhashmap(array,6)
+print(res)
