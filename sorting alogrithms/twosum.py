@@ -1,7 +1,5 @@
-
-
 array = [4,2,5,7,1,9]
-
+#bruteforce
 def twosum(array):
     resultlist = []
     for i in range(len(array)):
@@ -10,7 +8,7 @@ def twosum(array):
     return resultlist
 
 
-
+#no auxillaryspace 
 def twosumsort(array, target):
     array.sort()
     resultlist = []
@@ -28,7 +26,7 @@ def twosumsort(array, target):
     return resultlist
 
 
-
+#use auxillary space
 def twosumhashmap(array, target):
     dict = {}
     result = []
@@ -37,7 +35,7 @@ def twosumhashmap(array, target):
             result.append([array[i], target - array[i]])
         else:
             dict[array[i]] = 1
-    return result
+    return result,dict
 
-res =twosumhashmap(array,6)
-print(res)
+res,dict =twosumhashmap(array,6)
+print(res,dict)

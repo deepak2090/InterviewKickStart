@@ -1,11 +1,14 @@
-array = [5,3,2,8,1,0,77,45]
+array = [5,3,2,8,1,0,77,45,-22,-33]
 
 def mergehelper(array, start, end):
-    if start >=end:
+    #if it is a leaf node then return
+    if start ==end:
         return
     mid = (start + end)//2
+    #if it is a bigger problem not a leaf keep dividing the array as below
     mergehelper(array, start, mid)
     mergehelper(array, mid+1, end)
+    #assume the same middle node has been sorted now you have to merge it.
     i = start
     j = mid+1
     aux = []
