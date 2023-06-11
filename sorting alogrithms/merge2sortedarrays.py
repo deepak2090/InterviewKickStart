@@ -13,7 +13,7 @@ def merge_one_into_another(first, second):
     """
     # Write your code here.
     i = len(first)-1
-    j = len(first) -1
+    j = len(first) -1 
     k = len(second) - 1
     while i >=0 and j >=0:
         if first[i] >= second[j]:
