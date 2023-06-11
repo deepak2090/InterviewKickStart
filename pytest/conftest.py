@@ -1,4 +1,5 @@
 from pytest_bdd import scenarios, parsers, given, when
+import pytest
 import sys
 import os
 
@@ -14,3 +15,8 @@ def request_user_info(userid2):
     print("the second user id is", userid2)
     print("1111111")
     return userid2, type(userid2)
+
+def pytest_configure(config):
+    config.addinivalue_line(
+        "markers", "mytag: mark tests with mytag"
+    )
