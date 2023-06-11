@@ -7,7 +7,7 @@ def intersection(array1,array2):
     i = 0
     j = 0
     result = []
-    while i < len(array1) and j < len(array2):
+    while i < len(array1) and j < len(array2): 
         if array1[i] == array2[j]:
             result.append(array1[i])
             i+=1
