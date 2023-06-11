@@ -1,5 +1,4 @@
 from pytest_bdd import given, when, then, scenarios,parsers
-import argparse
 
 scenarios('../features')
 
@@ -13,13 +12,6 @@ def have_user_id(userid):
     pass
 
 
-@when(parsers.parse('I request user information for ID {userid2}'))
-def request_user_info(userid2):
-    # Make an API request without using a parameter
-    userid2 += ' XXXXX'
-    print("the second user id is", userid2)
-    print("1111111")
-    return userid2, type(userid2)
 
 
 @then(parsers.parse('the response status code should be {statuscode}'))
