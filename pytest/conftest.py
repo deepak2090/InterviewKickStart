@@ -16,7 +16,16 @@ def request_user_info(userid2):
     print("1111111")
     return userid2, type(userid2)
 
+#this code is not needed for identifying tags
 def pytest_configure(config):
     config.addinivalue_line(
         "markers", "mytag: mark tests with mytag"
     )
+
+
+pathconf = os.path.dirname(os.path.abspath(__file__))
+@pytest.fixture
+def yaml_file(path):
+    # Modify the path of testdata.yaml here
+    testdata_path = os.path.join(pathconf, "tests/data/testdata.yaml")
+    return testdata_path

@@ -19,3 +19,14 @@ def InplaceEvenodd(array):
 print(InplaceEvenodd(array))
 
 print('update')
+
+array1 = [88,77,11,20,40, 5,6,1,8,33,9,10,55,12,47]
+def inplaceoddeven(array):
+    oddptr = -1
+    for evenptr in range(len(array)):
+        if array[evenptr] % 2 == 1:
+            oddptr +=1
+            array[evenptr], array[oddptr] = array[oddptr], array[evenptr]
+    return array
+
+print(inplaceoddeven(array1))
