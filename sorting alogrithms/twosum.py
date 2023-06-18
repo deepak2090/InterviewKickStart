@@ -26,6 +26,8 @@ def twosumsort(array, target):
     return resultlist
 
 
+array = [4,2,5,7,1,9,11,3,2,6,0]
+
 #use auxillary space
 def twosumhashmap(array, target):
     dict = {}
@@ -37,5 +39,5 @@ def twosumhashmap(array, target):
             dict[array[i]] = 1
     return result,dict
 
-res,dict =twosumhashmap(array,6)
+res,dict =twosumhashmap(array,5)
 print(res,dict)
