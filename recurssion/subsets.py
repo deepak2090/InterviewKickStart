@@ -1,4 +1,4 @@
-parenthesis = "xyz"
+parenthesis = "abcd"
 def generate_all_subsets(s):
     subset = ['']
     for i in range(len(s)):
