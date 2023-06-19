@@ -1,12 +1,8 @@
 parenthesis = "abcd"
 def generate_all_subsets(s):
-    subset = ['']
-    for i in range(len(s)):
-        length = len(subset)
-        for j in range(length):
-            subset.append(subset[j] + s[i])
-    return subset
-
+    result = ['']
+    for j in range(len(s)):
+        for i in range(len(result)):
+            result.append(result[i] + s[j])
+    return result
 print(generate_all_subsets(parenthesis))
-
-#learn tomorrow
