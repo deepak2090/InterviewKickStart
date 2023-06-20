@@ -53,5 +53,5 @@ def merge2arrays(arr1, arr2):
         j+=1
     return merged
 
-result = merge2arrays(array1,array2)
+result = merge2arrays(first,second)
 print(result)
