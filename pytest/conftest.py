@@ -1,3 +1,4 @@
+from cgi import test
 from pytest_bdd import scenarios, parsers, given, when
 import pytest
 import sys
@@ -24,8 +25,10 @@ def pytest_configure(config):
 
 
 pathconf = os.path.dirname(os.path.abspath(__file__))
+print(pathconf)
 @pytest.fixture
-def yaml_file(path):
+def yaml_file_path():
     # Modify the path of testdata.yaml here
-    testdata_path = os.path.join(pathconf, "tests/data/testdata.yaml")
+    testdata_path = os.path.join(pathconf, "tests/data/")
+    print("path is ", testdata_path)
     return testdata_path
