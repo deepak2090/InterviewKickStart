@@ -3,6 +3,7 @@ from multiprocessing import context
 from pytest_bdd import given, when, then, scenarios,parsers, scenario
 import pytest
 import yaml
+import os
 
 scenarios('../features')
 
@@ -33,7 +34,10 @@ def verify_response_body(expected):
     pass
 
 @then(parsers.parse('the tree structure should match the following YAML file {yaml_file}'))
-def verify_tree_structure(yaml_file):
-    with open(yaml_file, 'r') as file:
+def verify_tree_structure(yaml_file_path, yaml_file):
+    fullpath = os.path.join(yaml_file_path, yaml_file)
+    with open(fullpath, 'r') as file:
+        print(fullpath)
         tree_structure = yaml.load(file, Loader=yaml.Loader)
         print(tree_structure)
+
