@@ -35,6 +35,12 @@ def verify_response_body(expected):
 
 @then(parsers.parse('the tree structure should match the following YAML file {yaml_file}'))
 def verify_tree_structure(yaml_file_path, yaml_file):
+    x = yaml_file_path
+    pathplaceholder = '#path#'
+    if '#path#' in yaml_file:
+        pathplaceholder = pathplaceholder.replace('#path#', x)
+        yaml_file = yaml_file.replace('#path#/', '')
+        fullpath = os.path.join(pathplaceholder, yaml_file)
     fullpath = os.path.join(yaml_file_path, yaml_file)
     with open(fullpath, 'r') as file:
         print(fullpath)

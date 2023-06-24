@@ -10,6 +10,6 @@ Feature: API Testing
 
     Examples:
       | userid   | userid2    | statuscode | expected | yaml_file| 
-      | Deepak | deepakdas| 200        | 888    | testdata.yaml |
+      | Deepak | deepakdas| 200        | 888    | #path#/testdata.yaml |
       | John   | johndoe  | 404        | User not found | testdata.yaml |
       | Meenakshi| buli   | 100        | chikimon | testdata.yaml |
