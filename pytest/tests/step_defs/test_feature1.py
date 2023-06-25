@@ -33,7 +33,7 @@ def verify_response_body(expected):
     print(expected)
     pass
 
-#@then(parsers.parse('the tree structure should match the following YAML file {yaml_file}'))
+@then(parsers.parse('the tree structure should match the following YAML file {yaml_file}'))
 def verify_tree_structure(yaml_file_path, yaml_file):
     x = yaml_file_path
     pathplaceholder = '#path#'
