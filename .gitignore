@@ -4,3 +4,5 @@ packaging/*
 pytest/__pycache__/conftest.cpython-310-pytest-7.3.1.pyc
 pytest/tests/step_defs/__pycache__/*
 pytest/__pycache__/*
+pytest/tests/step_defs/__pycache__/*
+pytest/tests/step_defs/__pycache__/test_feature1.cpython-310-pytest-7.3.1.pyc
