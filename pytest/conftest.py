@@ -23,7 +23,6 @@ def pytest_configure(config):
         "markers", "mytag: mark tests with mytag"
     )
 
-
 pathconf = os.path.dirname(os.path.abspath(__file__))
 print(pathconf)
 @pytest.fixture
