@@ -1,6 +1,8 @@
 from cgi import test
 from pytest_bdd import scenarios, parsers, given, when
 import pytest
+#import pytest_html
+#from pytest_html import html
 import sys
 import os
 
@@ -31,3 +33,26 @@ def yaml_file_path():
     testdata_path = os.path.join(pathconf, "tests/data/")
     print("path is ", testdata_path)
     return testdata_path
+"""
+@pytest.mark.optionalhook
+def pytest_configure(config):
+    config._metadata['Project'] = 'API Testing'
+    config._metadata['Module'] = 'test_api'
+    config._metadata['Tester'] = 'Your Name'
+    config._metadata['Environment'] = 'Test'
+    config.option.htmlpath = 'reports/report.html'  # Set the report output directory and file name
+
+# Add a custom marker for pytest-html report
+def pytest_html_results_table_header(cells):
+    cells.insert(1, html.th('Description'))
+    cells.insert(2, html.th('Test Data'))
+
+def pytest_html_results_table_row(report, cells):
+    cells.insert(1, html.td(report.description))
+    cells.insert(2, html.td(report.data.get('TestData', '')))
+
+def pytest_html_results_table_html(report, data):
+    if report.passed:
+        del data[:]
+
+"""
