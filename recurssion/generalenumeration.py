@@ -52,3 +52,5 @@ def combinations(s):
 x = "{}{{}}"
 print(combinations(x), len(result))
 
+
+

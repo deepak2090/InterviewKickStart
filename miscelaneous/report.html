@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>API Validation Report</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         table {
             border-collapse: collapse;
@@ -27,9 +28,9 @@
             <th>Payload</th>
         </tr>
         <tr>
-            <td>{{ status_code }}</td>
-            <td>{{ error_message }}</td>
-            <td>{{ response_content }}</td>
+            <td>{{ status_code }} <i class="fas fa-check"></i></td>
+            <td>{{ error_message }} <i class="fas fa-exclamation-triangle"></i></td>
+            <td>{{ response_content }}<img src="morganimage.png" alt="Response Image" style="max-width: 100px;"></td>
             <td>{{ payload }}</td>
         </tr>
     </table>
