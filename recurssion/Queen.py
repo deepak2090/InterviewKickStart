@@ -11,7 +11,5 @@ def queen(x):
                 x[row][col] == 'q'
     return x 
 
-def isvalid(array[i][j]):
-    pass
 
 
