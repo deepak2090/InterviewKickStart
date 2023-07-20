@@ -1,7 +1,7 @@
 #iterative
 parenthesis = "abcd"
 def generate_all_subsets(s):
-    result = ['']
+    result = []
     for j in range(len(s)):
         for i in range(len(result)):
             result.append(result[i] + s[j])
@@ -26,3 +26,4 @@ def helper(s, idx , result):
 
 
 print(generate_subset_recurssion(parenthesis))
+
