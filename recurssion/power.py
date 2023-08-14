@@ -24,3 +24,23 @@ def calculate_power(a, b):
             return temp * temp * a % 1000000007
 
 print(calculate_power(66,7))
+
+def fibonacci(n):
+    i = n
+    if n == 0 or n ==1:
+        return n
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+
+def fibonaci_iterative(n):
+    if n ==0:
+        return [0]
+    if n ==1:
+        return [0,1]
+    else:
+        result = [0,1]
+        for n in range(2,n):
+            result.append(result[-1] +result[-2])
+    return result
+

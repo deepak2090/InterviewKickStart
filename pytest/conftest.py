@@ -11,6 +11,26 @@ features_dir = os.path.dirname(os.path.abspath(__file__))
 features_dir = os.path.join(features_dir, '../tests/features')
 sys.path.append(features_dir)
 
+def pytest_html_report_title(report):
+    report.title = "Deepak Report"
+
+from pytest_metadata.plugin import metadata_key
+
+
+def pytest_configure(config):
+    config.stash[metadata_key]["foo"] = "bar"
+
+import pytest
+from pytest_metadata.plugin import metadata_key
+
+
+@pytest.hookimpl(tryfirst=True)
+def pytest_sessionfinish(session, exitstatus):
+    session.config.stash[metadata_key]["foo"] = "bar"
+
+def pytest_html_results_summary(prefix, summary, postfix):
+    prefix.extend(["<p>foo: bar</p>"])
+    
 @when(parsers.parse("I request user information for ID {userid2}"))
 def request_user_info(userid2):
     # Make an API request without using a parameter

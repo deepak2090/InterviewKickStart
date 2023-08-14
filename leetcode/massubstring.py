@@ -35,3 +35,30 @@ str2 = "TAUXXTAUXXTAUXXTAUXXTAUXX"
 
 result = gcdOfStrings(str1,str2)
 print(result)
+
+input = "pwwkew"
+
+def lengthOfLongestSubstring(s: str) -> int:
+    dict = {}
+    temp = ""
+    counter = 0
+    i = 0
+    tempresult = 0
+    if len(s) == 0:
+        return 0
+    else:
+        while i < len(s):
+            if s[i] not in dict.keys():
+                dict[s[i]] = i
+                temp = temp + s[i]
+                i+=1
+                counter = max(len(temp), tempresult)
+            else:
+                if len(temp) > tempresult:
+                    tempresult = len(temp)
+                temp = ""
+                i = dict[s[i]] +1
+                dict = {}
+    return counter
+
+print(lengthOfLongestSubstring("au"))

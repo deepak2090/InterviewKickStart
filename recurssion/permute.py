@@ -16,7 +16,7 @@ def get_permutations(arr):
     return result
 
 output = get_permutations(array)
-
+print(output)
 def permutations(arr):
     return
 
