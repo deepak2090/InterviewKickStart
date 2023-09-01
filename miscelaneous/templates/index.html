@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Command Execution Example</title>
+</head>
+<body>
+   <h1>Command Execution with Progress Display</h1>
+   <div id="progressText">Initializing...</div>
+
+   <script>
+       const progressText = document.getElementById('progressText');
+
+       const eventSource = new EventSource('/execute_command');
+       eventSource.onmessage = (event) => {
+           const data = JSON.parse(event.data);
+           if (data.progress !== undefined) {
+               progressText.textContent = data.progress;
+           }
+           if (data.output !== undefined) {
+               const outputDiv = document.createElement('div');
+               outputDiv.textContent = data.output;
+               progressText.appendChild(outputDiv);
+           }
+       };
+
+       eventSource.onclose = () => {
+           progressText.textContent = 'Task Complete!';
+       };
+   </script>
+</body>
+</html>

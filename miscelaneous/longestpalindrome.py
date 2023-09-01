@@ -12,4 +12,5 @@ class Solution:
         for i in range(len(s)):
             for j in range(len(s),0,-1):
                 if palindromecheck(i,j):
-                    return s[i:j]
+                    return s[i:j] #leftpointerrightpointer
+                    
