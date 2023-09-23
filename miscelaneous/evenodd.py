@@ -30,3 +30,7 @@ def inplaceoddeven(array):
     return array
 
 print(inplaceoddeven(array1))
+
+import subprocess, os
+result = os.environ.get('FLASK_USERNAME')
+print(result)
