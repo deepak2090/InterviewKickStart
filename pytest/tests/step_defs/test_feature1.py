@@ -25,10 +25,11 @@ def verify_status_code(useridvalue, statuscode):
     print(statuscode,"the user id1 is from target_fixture:", useridvalue)
     pass
 
-
+import time
 @then(parsers.parse('the response body should contain {expected}'))
 def verify_response_body(expected):
     # Perform assertions on the response body
+    time.sleep(3)
     print(expected)
     pass
 

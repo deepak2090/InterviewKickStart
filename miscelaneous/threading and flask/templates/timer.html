@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+<body>
+    <h1>Elapsed Time</h1>
+    <p id="timer">0:0:0</p>
+    <p id="status"></p>
+
+    <script>
+        function updateTimer() {
+            fetch('/timer_data')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('timer').innerText = data.timer;
+                    document.getElementById('status').innerText = data.status;
+
+                    // Check if the process is complete to stop automatic refresh
+                    if (data.status === 'Process complete') {
+                        clearInterval(timerInterval);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Initial update
+        updateTimer();
+
+        // Update the timer every second
+        var timerInterval = setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>
