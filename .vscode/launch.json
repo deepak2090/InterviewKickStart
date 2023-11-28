@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "settings": {
+        "python.terminal.activateEnvInCurrentTerminal": true,
+        "python.pythonPath": "/usr/local/bin/python3",
+        "code-runner.executorMap": {
+            "python": "python3 -u"
+        }
+    },
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ],
+}
