@@ -1,3 +1,4 @@
+from codecs import StreamRecoder
 from flask import Flask, jsonify
 from celery import Celery
 from tasks import say_hello
@@ -48,4 +49,4 @@ def get_result(task_id):
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, StreamRecoder = True)

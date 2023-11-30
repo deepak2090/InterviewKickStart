@@ -16,6 +16,12 @@ def say_hello():
     stdout, stderr = process.communicate()
     logging.info(f"pytest output:\n{stdout.decode('utf-8')}")
     time.sleep(30)
+
+    # Check if the subprocess was successful
+    if process.returncode != 0:
+        logging.error(f"pytest subprocess failed with error: {stderr.decode('utf-8')}")
+    
+
     
     # Return a placeholder message
     print("function is running")
