@@ -15,7 +15,7 @@ celery.conf.update(app.config)
 @app.route('/hello/<i>')
 def hello(i):
     # Trigger the Celery task to say hello
-    result = say_hello.apply_async()
+    result = say_hello.apply_async(args = [i])
 
     # Return an immediate response to the client with the task ID
     response = {
