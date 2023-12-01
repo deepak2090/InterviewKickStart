@@ -15,7 +15,7 @@ def say_hello(i):
     process = subprocess.Popen(trigger_suit_cmd ,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
     logging.info(f"pytest output:\n{stdout.decode('utf-8')}")
-    time.sleep(30)
+    time.sleep(40)
     print(f"the value is {i}", i)
     logging.info(f"the value of the parameter is {i}") #this works and this is how parameter is passed
     # Check if the subprocess was successful
