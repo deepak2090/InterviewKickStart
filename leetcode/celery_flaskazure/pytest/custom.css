@@ -1,0 +1,21 @@
+
+/* custom.css */
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 20px;
+    background-image: url("/Users/deepakdas/InterviewKickStart/InterviewKickStart-1/miscelaneous/morganimage.png"); /* Use relative or absolute path */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    height: 150px; /* Adjust height as needed */
+  }
+  
+  /* Center the title text */
+  header h1 {
+    margin: 0;
+  }
+  
+  /* Customize the header image and title text based on your preferences */
+  

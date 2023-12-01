@@ -36,5 +36,7 @@
         "env.bak{,/**}",
         "venv.bak{,/**}",
         ".vscode{,/**}"
-    ]
+    ],
+    "appService.defaultWebAppToDeploy": "None",
+    "appService.deploySubpath": "celery_flask"
 }
