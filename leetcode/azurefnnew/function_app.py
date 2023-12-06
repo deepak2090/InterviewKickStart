@@ -1,43 +1,28 @@
 import azure.functions as func
-import logging
-import asyncio
+import azure.durable_functions as df
 
-app = func.FunctionApp()
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
-async def xyz(a, b):
-    # Your custom function implementation goes here
-    # This function can perform any logic you need with parameters a and b
-    result = a + b
-    await asyncio.sleep(5)  # Use asyncio.sleep for asynchronous delay
-    logging.info('The delay function is running')
-    print("the delay is running")
-    return result
+# An HTTP-Triggered Function with a Durable Functions Client binding
+@myApp.route(route="orchestrators/{functionName}")
+@myApp.durable_client_input(client_name="client")
+async def http_start(req: func.HttpRequest, client):
+    function_name = req.route_params.get('functionName')
+    instance_id = await client.start_new(function_name)
+    response = client.create_check_status_response(req, instance_id)
+    return response
 
-@app.function_name(name="HttpTrigger1")
-@app.route(route="hello")
-async def test_function(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
+# Orchestrator
+@myApp.orchestration_trigger(context_name="context")
+def hello_orchestrator(context):
+    result1 = yield context.call_activity("hello", "Seattle")
+    result2 = yield context.call_activity("hello", "Tokyo")
+    result3 = yield context.call_activity("hello", "London")
 
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = await req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
+    return [result1, result2, result3]
 
-    if name:
-        # Use asyncio.create_task to run the asynchronous function in the background
-        task = asyncio.create_task(xyz(10, 30))  # Example: Pass 10 and 30 as parameters
-
-        # Placeholder response message
-        response_message = f"Hello async, {name}. This HTTP triggered function is processing the request."
-
-        # Immediately return the response without waiting for the task to complete
-        return func.HttpResponse(response_message)
-    else:
-        return func.HttpResponse(
-            "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
-            status_code=200
-        )
+# Activity
+@myApp.activity_trigger(input_name="city")
+def hello(city: str):
+    
+    return "Hello " + city
