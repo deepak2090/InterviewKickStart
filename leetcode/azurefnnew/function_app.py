@@ -1,3 +1,4 @@
+import time
 import azure.functions as func
 import azure.durable_functions as df
 
@@ -24,5 +25,5 @@ def hello_orchestrator(context):
 # Activity
 @myApp.activity_trigger(input_name="city")
 def hello(city: str):
-    
+    time.sleep(200)
     return "Hello " + city
