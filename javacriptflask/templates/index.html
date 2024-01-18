@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask App</title>
+</head>
+<body>
+    <h1>Flask App</h1>
+    <form method="post" action="/">
+        <label for="resource">Select Resource:</label>
+        <select name="resource" id="resource">
+            <option value="x">Resource X</option>
+            <option value="y">Resource Y</option>
+            <option value="z">Resource Z</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if javascript_response %}
+        <script>
+            {{ javascript_response | safe }}
+        </script>
+    {% endif %}
+</body>
+</html>
