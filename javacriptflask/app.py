@@ -1,33 +1,37 @@
-from flask import Flask, render_template, request, jsonify
-import time
+from flask import Flask, render_template, request
+import concurrent.futures
 
 app = Flask(__name__)
 
-# Sample resources
-@app.route('/x', methods=['GET'])
-def resource_x():
-    time.sleep(10)  # Simulating a delay
-    return jsonify({'result': 'Resource X response'})
 
-@app.route('/y', methods=['POST'])
-def resource_y():
-    time.sleep(3)  # Simulating a delay
-    return jsonify({'result': 'Resource Y response'})
+def long_running_task(selected_resource, input_value):
+    import time
+    time.sleep(10)
+    return f"Received parameters: resource={selected_resource}, input_value={input_value}"
 
-@app.route('/z', methods=['POST'])
-def resource_z():
-    time.sleep(4)  # Simulating a delay
-    return jsonify({'result': 'Resource Z response'})
 
-# Main route with the form
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    if request.method == 'POST':
-        selected_resource = request.form.get('resource')
-        # Assuming you have JavaScript logic to handle the response asynchronously
-        javascript_response = f"alert('Received response from {selected_resource}');"
-        return render_template('index.html', javascript_response=javascript_response)
-    return render_template('index.html', javascript_response=None)
+    feedback_message = None
+
+    # Extract parameters from the URL
+    selected_resource = request.args.get('resource')
+    input_value = request.args.get('input_value')
+
+    if selected_resource and input_value:
+        import time
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            future = executor.submit(long_running_task, selected_resource, input_value)
+            # Respond immediately
+        feedback_message = f"Received parameters: resource={selected_resource}, input_value={input_value}"
+        # You can perform other actions or logging as needed
+
+    return render_template('index.html', feedback_message=feedback_message)
+
+@app.route('/<resource>', methods=['GET'])
+def resource_page(resource):
+    # Use the 'resource' parameter here for further processing
+    return f"Welcome to the {resource} page!"
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -7,19 +7,33 @@
 </head>
 <body>
     <h1>Flask App</h1>
-    <form method="post" action="/">
+    <form method="get" action="/">
         <label for="resource">Select Resource:</label>
-        <select name="resource" id="resource">
+        <select name="resource" id="resource" onchange="updateAction()">
             <option value="x">Resource X</option>
             <option value="y">Resource Y</option>
             <option value="z">Resource Z</option>
         </select>
+
+        <label for="input_value">Enter Input:</label>
+        <input type="text" name="input_value" id="input_value" />
+
         <button type="submit">Submit</button>
     </form>
 
-    {% if javascript_response %}
+    <div id="feedback-message"></div>
+
+    {% if feedback_message %}
         <script>
-            {{ javascript_response | safe }}
+            // Display feedback message
+            document.getElementById("feedback-message").innerHTML = "{{ feedback_message | safe }}";
+            
+            // Function to update action
+            function updateAction() {
+                var resourceDropdown = document.getElementById("resource");
+                var selectedValue = resourceDropdown.options[resourceDropdown.selectedIndex].value;
+                document.forms[0].action = "/" + selectedValue;
+            }
         </script>
     {% endif %}
 </body>
