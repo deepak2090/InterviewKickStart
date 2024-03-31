@@ -3,3 +3,5 @@ node_modules
 web-dev-starter
 webpack-starter
 webpack-starter
+javascriptflask/__pycache__/*
+js-demp/node_modules
