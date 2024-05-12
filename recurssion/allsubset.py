@@ -43,4 +43,8 @@ def gcdstring(str1, str2):
         return str1[:gcd_len]
     else:
         return ""
+
+import time
+time.sleep(50)
 print(gcdstring("TAUXXTAUXXTAUXXTAUXXTAUXX", "TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX"))
+print("start")
