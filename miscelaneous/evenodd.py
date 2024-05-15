@@ -28,7 +28,10 @@ def inplaceoddeven(array):
             oddptr +=1
             array[evenptr], array[oddptr] = array[oddptr], array[evenptr]
     return array
-
+import time
+time.sleep(40)
+with open ("text.txt","a") as file:
+    file.writelines(str(array1)+'\n')
 print(inplaceoddeven(array1))
 
 import subprocess, os
