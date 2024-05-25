@@ -1,17 +1,16 @@
-from flask import Flask
+
+
 import requests
-
-app =  Flask(__name__)
-
-url = "https://google.com1111"
+url = "https://google.com"
 try:
     # Make a request
-    response = requests.get(url)
+    response = requests.post(url)
 
     # Check the response status code
     if response.status_code == 200:
         # Request was successful
         print("Request succeeded")
+        print(response.content)
     else:
         # Request failed with an error status code
         print(f"Request failed with status code: {response.status_code}")
