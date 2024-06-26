@@ -12,7 +12,9 @@ def index():
 @app.route('/execute_command')
 def execute_command():
     command = 'python3 evenodd.py'
-    time.sleep(5)
+    subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
+    
+    return "Job triggered"
     process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
     if process.returncode is None:
         return "batch job is executing it will take a while"
