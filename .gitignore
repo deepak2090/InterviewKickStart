@@ -8,3 +8,10 @@ js-demp/node_modules
 webpack-starter
 webpack-starter
 sphinxtest/*
+miscelaneous/__pycache__/app.cpython-311.pyc
+miscelaneous/FlaskTest/__pycache__/app.cpython-311.pyc
+pytest/__pycache__/conftest.cpython-311-pytest-7.4.3.pyc
+pytest/__pycache__/conftest.cpython-311-pytest-8.1.1.pyc
+pytest/tests/step_defs/__pycache__/test_feature1.cpython-311-pytest-7.4.3.pyc
+requests_advanced/__pycache__/requestsadv.cpython-311.pyc
+utilities/__pycache__/importcheck.cpython-311.pyc

@@ -1,0 +1,36 @@
+/*h1{
+    color: blueviolet;
+
+
+}
+
+li{
+    color: rgb(127, 202, 255);
+}
+
+p{
+    color:darkviolet
+}
+
+h4{
+    color:tomato
+}
+
+body{
+    background-position: 0%;
+    background: url(https://images.unsplash.com/photo-1713877561507-881bf3b1c310?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+}*/
+
+div{
+    background: burlywood;
+    border: red 2px;
+    border-style: solid;
+}
+
+p{
+    color: blueviolet
+}
+span{
+    font: bolder;
+    color: rgb(139, 0, 21);
+}
