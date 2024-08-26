@@ -1,11 +1,10 @@
 
-def fib(n):
-    
-    sum = [0,1,0]
-    for i in range(2,n):
-        temp = sum[0] + sum[1]
-        sum[2] = temp
-        sum[0] = sum[1]
-        sum[1]= temp
-    return sum[2]
-print(fib(99))
+def fib(n, memo={}):
+    if n in memo:
+        return memo[n]
+    if n <=1:
+        return 1
+    if n not in memo:
+        memo[n] = fib(n-1, memo) + fib(n-2, memo)
+    return memo[n]
+print(fib(8))

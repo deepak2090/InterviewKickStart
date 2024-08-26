@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Dropdown Example</title>
+    <script>
+        function updateItems() {
+            const selectedCategory = document.getElementById('category').value;
+            const itemsDropdown = document.getElementById('items');
+            itemsDropdown.innerHTML = '';
+
+            const items = {{ data | tojson }};
+            if (selectedCategory in items) {
+                items[selectedCategory].forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item;
+                    option.text = item;
+                    itemsDropdown.add(option);
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Select a Category</h1>
+
+    <form method="GET">
+        <label for="category">Category:</label>
+        <select name="category" id="category" onchange="updateItems()">
+            <option value="">--Select a Category--</option>
+            {% for category in categories %}
+                <option value="{{ category }}">{{ category }}</option>
+            {% endfor %}
+        </select>
+
+        <br><br>
+
+        <label for="items">Items:</label>
+        <select name="items" id="items">
+            <option value="">--Select an Item--</option>
+        </select>
+    </form>
+</body>
+</html>
