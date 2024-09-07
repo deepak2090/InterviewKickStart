@@ -9,12 +9,16 @@
     },
     "configurations": [
         {
-            "name": "Python: Current File",
-            "type": "python",
+            "name": "(lldb) Launch",
+            "type": "cppdbg",
             "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal",
-            "justMyCode": true
+            "program": "enter program name, for example ${workspaceFolder}/a.out",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
         }
-    ],
+    ]
 }
